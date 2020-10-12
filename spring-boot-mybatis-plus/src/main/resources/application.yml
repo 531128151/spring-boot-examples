@@ -12,3 +12,8 @@ spring:
 logging:
     level:
       com.neo: debug
+
+# mybatis-plus配置
+mybatis-plus:
+    mapper-locations: classpath:mapper/**/*.xml
+    type-aliases-package: com.neo.model.*

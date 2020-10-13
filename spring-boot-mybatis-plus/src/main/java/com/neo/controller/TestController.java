@@ -7,6 +7,7 @@ import com.drew.metadata.exif.GpsDirectory;
 import com.neo.mapper.UserMapper;
 import com.neo.model.User;
 import com.drew.metadata.Metadata;
+import com.neo.util.CommonUtil;
 import com.neo.util.DateUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -69,6 +70,9 @@ public class TestController {
 //        }, 3, TimeUnit.SECONDS);
         int i = DateUtil.getDifferenceFromTwoDate("2020-10-01 10:50:30","2020-10-09 10:20:30");
         System.out.println(i);
+        String str  = "13812189089";
+        boolean telphoneNumber = CommonUtil.isTelphoneNumber(str);
+        System.out.println(telphoneNumber);
     }
 
 }

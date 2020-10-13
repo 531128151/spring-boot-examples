@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
+import java.util.Random;
 
 /**
  * @Author: ZiLing.Zhao
@@ -41,6 +42,26 @@ public class VerifyCodeController {
             log.error("【异常】- {}", e);
             log.error("<--验证码前端写出.出现异常-->"+e.getMessage());
         }
+    }
+
+    @RequestMapping(value = "/test")
+    public Object test(){
+        ByteArrayOutputStream output = new ByteArrayOutputStream();
+        VerifyCodeUtil code=new VerifyCodeUtil();
+        String verifyCodeValue = code.drawImg(output);
+        log.info("【登录验证码】- {}", verifyCodeValue);
+        return null;
+    }
+
+    public static void main(String[] args) {
+        ByteArrayOutputStream output = new ByteArrayOutputStream();
+        VerifyCodeUtil code=new VerifyCodeUtil();
+        String verifyCodeValue = code.drawImg(output);
+        log.info("【登录验证码】- {}", verifyCodeValue);
+
+        Random r = new Random();
+        String s = "ABCDEFGHJKLMNPRSTUVWXYZ0123456789";
+        System.out.println( s.charAt(r.nextInt(s.length())));
     }
 
 }

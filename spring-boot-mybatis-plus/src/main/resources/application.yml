@@ -1,19 +1,21 @@
 # DataSource Config
-spring:
-    datasource:
-        driver-class-name: org.h2.Driver
-        schema: classpath:db/schema-h2.sql
-        data: classpath:db/data-h2.sql
-        url: jdbc:h2:mem:test
-        username: root
-        password: test
 
 # Logger Config
 logging:
     level:
       com.neo: debug
 
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://192.168.0.2:3306/uav_dev?characterEncoding=UTF-8&useUnicode=true&useSSL=false&serverTimezone=Asia/Shanghai&nullCatalogMeansCurrent=true
+    username: root
+    password: zxhcqaz123
+
 # mybatis-plus配置
 mybatis-plus:
     mapper-locations: classpath:mapper/**/*.xml
     type-aliases-package: com.neo.model.*
+server:
+    port: 10086
+
